@@ -6,13 +6,22 @@ import (
 
 const helloPrefix = "Hello "
 
-func Hello(name string) string {
+func Hello(name string, language string) string {
 	if name == "" {
 		name = "world"
 	}
-	return helloPrefix + name
+
+	prefix := helloPrefix
+	switch language {
+	case "Spanish":
+		prefix = "Hola "
+	case "Italian":
+		prefix = "Ciao "
+	}
+
+	return prefix + name
 }
 
 func main() {
-	fmt.Println(Hello("LoSpiri"))
+	fmt.Println(Hello("LoSpiri", "English"))
 }
